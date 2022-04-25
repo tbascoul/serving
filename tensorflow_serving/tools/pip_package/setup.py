@@ -47,9 +47,14 @@ if '--project_name' in sys.argv:
 _TF_REQ = ['tensorflow'+_TF_VERSION_SANITIZED]
 
 # GPU build (note: the only difference is we depend on tensorflow-gpu so
-# pip doesn't overwrite it with the CPU build)
+# pip doesn't overwrite it with the global build)
 if 'tensorflow-serving-api-gpu' in project_name:
   _TF_REQ = ['tensorflow-gpu'+_TF_VERSION_SANITIZED]
+
+# CPU build (note: the only difference is we depend on tensorflow-cpu so
+# pip doesn't overwrite it with the global build)
+if 'tensorflow-serving-api-cpu' in project_name:
+  _TF_REQ = ['tensorflow-cpu'+_TF_VERSION_SANITIZED]
 
 
 REQUIRED_PACKAGES = [
